@@ -1,0 +1,200 @@
+//============================================================================
+// Name        : OOP_Assignment.cpp
+// Author      : 
+// Version     :
+// Copyright   : Your copyright notice
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+
+class FootballTeam{
+protected:
+	string goalkeeper;
+	string defender;
+	string midfielder;
+	string striker;
+	friend void ReturnGK(FootballTeam &);
+
+public:
+	FootballTeam(string gk,string df, string md, string sk);
+	FootballTeam(string gk,string df, string md);
+	FootballTeam(string gk,string df);
+	FootballTeam(const FootballTeam &);
+
+	FootballTeam operator + (FootballTeam);
+	FootballTeam operator = (FootballTeam);
+	bool operator == (FootballTeam);
+
+	virtual void display();
+	//virtual ~FootballTeam();
+	//virtual string getSub()=0;//part 6
+};
+
+/*FootballTeam::~FootballTeam(){
+	cout << "A football team has been destroyed" << endl;
+}*/
+FootballTeam::FootballTeam(string gk,string df, string md, string sk){
+	goalkeeper = gk;
+	defender = df;
+	midfielder = md;
+	striker = sk;
+}
+FootballTeam::FootballTeam(string gk,string df, string md){
+	goalkeeper = gk;
+	defender = df;
+	midfielder = md;
+}
+FootballTeam::FootballTeam(string gk,string df){
+	goalkeeper = gk;
+	defender = df;
+}
+void FootballTeam::display(){
+	cout << "Goalkeeper:" << goalkeeper << "\nDefender:" << defender << "\nMidfielder:"
+			<< midfielder << "\nStriker:" << striker << "\n"<< endl;
+	//cout << "Sub:" << getSub() << endl; //part 6
+}
+void ReturnGK (FootballTeam &a){
+	cout << "\nThe Goalkeeper is " << a.goalkeeper << "\n" << endl;
+}
+FootballTeam::FootballTeam(const FootballTeam &copy):
+		goalkeeper("John"),
+        defender("Rafael"),
+        midfielder("Roberto"),
+        striker("Eddy")
+{}
+
+bool FootballTeam::operator == (FootballTeam lads){
+if ((goalkeeper == lads.goalkeeper) && (defender == lads.defender)
+		&& (midfielder == lads.midfielder) && (striker == lads.striker)){
+	return true;
+}
+else return false;
+}
+
+FootballTeam FootballTeam::operator + (FootballTeam lads){
+	return FootballTeam(goalkeeper+" "+lads.goalkeeper,defender + " " +lads.defender,
+			midfielder+ " " + lads.midfielder,striker+ " " +lads.striker);
+}
+
+FootballTeam FootballTeam::operator = (FootballTeam lads){
+	return FootballTeam(lads.goalkeeper,lads.defender,lads.midfielder,lads.striker);
+}
+
+void CastFunction(int& c){
+	c++;
+	cout << "C has a value of " << c << endl;
+}
+
+class Fans{
+protected:
+	string fans;
+public:
+	Fans(string f);
+	virtual void display();
+
+};
+Fans::Fans(string f):
+		fans(f)
+{}
+void Fans::display(){
+	cout << "Fans:" << fans << "\n"<< endl;
+}
+
+class Substitutes: public FootballTeam{
+private:
+	string substitute;
+public:
+	Substitutes(string gk,string df, string md, string sk,string sb);
+	Substitutes(string sb);
+	virtual void display();
+	virtual string getSub();
+
+};
+
+string Substitutes::getSub(){ // part 6
+	return substitute;
+}
+
+Substitutes::Substitutes(string gk,string df, string md, string sk,string sb):
+FootballTeam(gk,df,md,sk), substitute(sb)
+{}
+
+
+
+void Substitutes::display(){
+	FootballTeam::display();
+	//cout << "Sub:" << substitute << endl; //  for part 6
+}
+
+class Venue: public FootballTeam,public Fans{
+private:
+
+public:
+	Venue(string gk,string df, string md, string sk,string f);
+	virtual void display();
+};
+
+Venue::Venue(string gk,string df, string md, string sk,string f):
+		FootballTeam(gk,df,md,sk), Fans(f)
+{}
+
+void Venue::display(){
+	cout << "\nGoalkeeper:" << goalkeeper << "\nDefender:" << defender << "\nMidfielder:"
+			<< midfielder << "\nStriker:" << striker << "\nFan:" << fans << "\n" << endl;
+}
+
+int main() {
+/*    FootballTeam four("Dave","Philip","Stan","Fergal");
+    FootballTeam three("Dave","Philip","Stan");
+    FootballTeam two("Dave","Philip");
+    Substitutes five("Dave","Philip","Stan","Fergal","Declan");
+    Venue Dfive("Dave","Philip","Stan","Fergal","Steve");
+    Fans OneFan("Harry");
+    FootballTeam FourCopy(four);//copy constructor
+
+    Substitutes AllSubs[3] = { Substitutes("Conor","Sean","Mick","Enda","Adon"),
+    		Substitutes("Olly","Brian","Jack","Dylan","Nixy"),
+    		Substitutes("Julio","Andre","Enrique","Javi","Luis")
+    };
+    Substitutes *p = &AllSubs[0];
+
+    five.display();
+    ReturnGK(four);
+
+    four.display();
+    three.display();
+    two.display();
+    five.display();
+    Dfive.display();
+    OneFan.display();
+    FourCopy.display();//copy constructor
+
+    FootballTeam NewLads = four + FourCopy;
+    NewLads.display();
+
+    FootballTeam LadsCopy = four = FourCopy;
+    LadsCopy.display();
+
+    if (four == FourCopy){
+    	cout <<"They are the same!" << endl;
+    }
+    else{
+    	cout << "They are not the same" << endl;
+    }
+
+cout << "The Sub for this team is "<< p->getSub() << endl;
+cout << "The Sub for this team is "<< (p+1)->getSub() << endl;
+cout << "The Sub for this team is "<< (p+2)->getSub() << endl;
+*/
+	float y = 200.6;
+	int x = static_cast<int>(y);
+	cout << x << endl;
+	cout << y << endl;
+//CastFunction(static_cast<int>(x));
+
+	return 0;
+}

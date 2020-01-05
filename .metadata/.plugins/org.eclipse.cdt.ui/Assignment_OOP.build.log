@@ -1,0 +1,10 @@
+15:47:42 **** Incremental Build of configuration Debug for project Assignment_OOP ****
+Info: Internal Builder is used for build
+g++ -o Assignment_OOP.exe "src\\Assignment_OOP.o" 
+src\Assignment_OOP.o:Assignment_OOP.cpp:(.rdata$_ZTV11Substitutes[__ZTV11Substitutes]+0x14): undefined reference to `FootballTeam::OutputVector(FootballTeam)'
+src\Assignment_OOP.o:Assignment_OOP.cpp:(.rdata$_ZTV5Venue[__ZTV5Venue]+0x14): undefined reference to `FootballTeam::OutputVector(FootballTeam)'
+src\Assignment_OOP.o:Assignment_OOP.cpp:(.rdata$_ZTV12FootballTeam[__ZTV12FootballTeam]+0x14): undefined reference to `FootballTeam::OutputVector(FootballTeam)'
+collect2.exe: error: ld returned 1 exit status
+
+15:47:42 Build Finished (took 441ms)
+

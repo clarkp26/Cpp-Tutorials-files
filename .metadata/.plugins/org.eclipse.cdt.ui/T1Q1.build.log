@@ -1,0 +1,11 @@
+20:17:41 **** Rebuild of configuration Debug for project T1Q1 ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\T1Q1.o" "..\\src\\T1Q1.cpp" 
+..\src\T1Q1.cpp: In function 'double DoubleSum(double, double)':
+..\src\T1Q1.cpp:16:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+g++ -o T1Q1.exe "src\\T1Q1.o" 
+
+20:17:42 Build Finished (took 1s.47ms)
+

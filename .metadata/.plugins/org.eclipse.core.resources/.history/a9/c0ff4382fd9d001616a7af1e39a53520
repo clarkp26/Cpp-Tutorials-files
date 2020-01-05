@@ -1,0 +1,266 @@
+//============================================================================
+// Name        : OOP_Assignment.cpp
+// Author      : 
+// Version     :
+// Copyright   : Your copyright notice
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+#include "FootballTeam.h"
+#include "Substitutes.h"
+#include "Venue.h"
+#include "Fans.h"
+
+FootballTeam::~FootballTeam(){
+	cout << "A football team has been destroyed" << endl;
+}
+FootballTeam::FootballTeam(string gk,string df, string md, string sk){
+	goalkeeper = gk;
+	defender = df;
+	midfielder = md;
+	striker = sk;
+	construct();
+}
+FootballTeam::FootballTeam(string gk,string df, string md){
+	goalkeeper = gk;
+	defender = df;
+	midfielder = md;
+	construct();
+}
+FootballTeam::FootballTeam(string gk,string df){
+	goalkeeper = gk;
+	defender = df;
+	construct();
+}
+void FootballTeam::display(){
+	cout << "Goalkeeper:" << goalkeeper << "\nDefender:" << defender << "\nMidfielder:"
+			<< midfielder << "\nStriker:" << striker << "\nTeam Number:"<< fbnum << "\n"<< endl;
+	//cout << "Sub:" << getSub() << endl; //part 6
+}
+/*void OutputVector(FootballTeam x){
+	x.display();
+}*/
+void ReturnGK (FootballTeam &a){
+	cout << "\nThe Goalkeeper is " << a.goalkeeper << "\n" << endl;
+}
+FootballTeam::FootballTeam(const FootballTeam &copy):
+		goalkeeper("John"),
+        defender("Rafael"),
+        midfielder("Roberto"),
+        striker("Eddy")
+{}
+
+bool FootballTeam::operator == (FootballTeam lads){
+if ((goalkeeper == lads.goalkeeper) && (defender == lads.defender)
+		&& (midfielder == lads.midfielder) && (striker == lads.striker)){
+	return true;
+}
+else return false;
+}
+
+FootballTeam FootballTeam::operator + (FootballTeam lads){
+	return FootballTeam(goalkeeper+" "+lads.goalkeeper,defender + " " +lads.defender,
+			midfielder+ " " + lads.midfielder,striker+ " " +lads.striker);
+}
+
+FootballTeam FootballTeam::operator = (FootballTeam lads){
+	return FootballTeam(lads.goalkeeper,lads.defender,lads.midfielder,lads.striker);
+}
+int FootballTeam::FBTnumber = 123456;
+
+void FootballTeam::construct(){
+	fbnum = FBTnumber++;
+}
+
+
+string Substitutes::getSub(){ // part 6
+	return substitute;
+}
+
+Substitutes::Substitutes(string gk,string df, string md, string sk,string sb):
+FootballTeam(gk,df,md,sk), substitute(sb)
+{}
+
+
+
+void Substitutes::display(){
+	FootballTeam::display();
+	//cout << "Sub:" << substitute << endl; //  for part 6
+}
+
+Fans::Fans(string f):
+		fans(f)
+{}
+void Fans::display(){
+	cout << "Fans:" << fans << "\n"<< endl;
+}
+
+
+Venue::Venue(string gk,string df, string md, string sk,string f):
+		FootballTeam(gk,df,md,sk), Fans(f)
+{}
+
+void Venue::display(){
+	cout << "\nGoalkeeper:" << goalkeeper << "\nDefender:" << defender << "\nMidfielder:"
+			<< midfielder << "\nStriker:" << striker << "\nFan:" << fans << "\n" << endl;
+}
+
+
+
+void CastFunction(int& c){
+	c = c+1;
+	cout << "C has a value of " << c << endl;
+}
+
+
+struct Manager {
+	Manager(string aname){//Default setting is that states and methods are public in struct
+		name=aname;
+	}
+	virtual string getName(){
+		return name;
+	}
+private:
+	string name;
+};
+/*Constant Parameter method*/
+/*int DecrementByTwo(const int &input, int subtractor){
+	return input=input-subtractor;
+}*/
+/*Constant Parameter method*/
+template<class T>
+class Reserves
+{
+private:
+	T reserve;
+public:
+	Reserves(T r){
+		reserve = r;
+	}
+	T ReturnReserve(){
+		return reserve;
+	}
+};
+	int main() {
+
+   /*FootballTeam four("Dave","Philip","Stan","Fergal");
+    FootballTeam three("Dave","Philip","Stan");
+    FootballTeam two("Dave","Philip");
+    Substitutes five("Dave","Philip","Stan","Fergal","Declan");
+    Venue Dfive("Dave","Philip","Stan","Fergal","Steve");
+    Fans OneFan("Harry");
+    FootballTeam FourCopy(four);//copy constructor*/
+/*
+    Substitutes AllSubs[3] = { Substitutes("Conor","Sean","Mick","Enda","Adon"),
+    		Substitutes("Olly","Brian","Jack","Dylan","Nixy"),
+    		Substitutes("Julio","Andre","Enrique","Javi","Luis")
+    };
+    Substitutes *p = &AllSubs[0];
+
+    five.display();
+    ReturnGK(four);*/
+
+/*    four.display();
+    three.display();
+    two.display();
+    five.display();
+    Dfive.display();
+    OneFan.display();
+    FourCopy.display();//copy constructor
+*/
+ /*   FootballTeam NewLads = four + FourCopy;
+    NewLads.display();
+
+    FootballTeam LadsCopy = four = FourCopy;
+    LadsCopy.display();
+
+    if (four == FourCopy){
+    	cout <<"They are the same!" << endl;
+    }
+    else{
+    	cout << "They are not the same" << endl;
+    }*/
+/*
+cout << "The Sub for this team is "<< p->getSub() << endl;
+cout << "The Sub for this team is "<< (p+1)->getSub() << endl;
+cout << "The Sub for this team is "<< (p+2)->getSub() << endl;
+*/
+
+	/*Casting examples*/
+	/*float y = 200.6;
+	int x = static_cast<int>(y);
+	cout << x << endl;
+	cout << y << endl;
+
+	const int i = 10;
+    CastFunction(*const_cast<int*>(&i));
+    cout << i << endl;*/
+
+    FootballTeam *boys = new Substitutes("Dave","Philip","Stan","Fergal","Declan");
+    Substitutes *subsboys = dynamic_cast<Substitutes*>(boys);
+    subsboys->display();
+
+    boys = new FootballTeam("Casillas","Kompany","Gundogan","Aguero");
+    boys->x = 9;
+    boys->display();
+    //boys->goalkeeper = "Neuer";
+    long ad = reinterpret_cast<long>(boys);
+
+    FootballTeam* pointer = reinterpret_cast<FootballTeam*>(ad);
+    cout << "The value for x is  " << pointer->x << "!!!" << endl;
+
+    Substitutes* sub = reinterpret_cast<Substitutes*>(ad);
+    cout << "The x value of sub is " << sub->x << endl;
+
+    Fans* fanstest = reinterpret_cast<Fans*>(ad);
+    cout << "The x value of fans is " << fanstest->x <<
+    		" and for y is " << fanstest->y <<endl;
+/*the casting section of code end*/
+
+	/*binding Non-virtual methods*/
+	/*FootballTeam *NonVirtualBoys = new FootballTeam("Casillas","Kompany","Gundogan","Aguero");
+    FootballTeam *NonVirtualSubs = new Substitutes("Casillas","Kompany","Gundogan","Aguero","Delph");
+    cout << NonVirtualBoys->NonVirtualExample() << endl;
+    cout << NonVirtualSubs->NonVirtualExample() << endl;*/
+    /*binding Non-virtual*/
+
+    /*new and delete in use*/
+/*	FootballTeam *first = new FootballTeam("Given","Shawcross","Bojan","Walters");
+	FootballTeam *second = new FootballTeam("Foster","McCauley","McClean","Rondon");
+
+	first->display();
+	second->display();
+
+	delete first;
+	delete second;
+*/
+	/*struct implementation*/
+   /* Manager x("Mourinho");
+    cout << x.getName() << endl;*/
+	/*Struct implemention*/
+
+    /*Constant parameter function*/
+    //int sample =5;
+   // cout << DecrementByTwo(sample,2) << endl;
+    /*Constant parameter function*/
+
+    /*class Template*/
+    /*Reserves<string> p("Paredes");
+    cout<<p.ReturnReserve()<<endl;*/
+    /*class Template*/
+
+
+
+    /*FootballTeam City("Bravo","Mangala","Stering","De Bruyne");
+    FootballTeam Spurs("Lloris","Vertongten","Wanyama","Alli");
+    Substitutes United("De Gea","Smalling","Herrera","Rooney","AYE");*/
+
+
+	return 0;
+}

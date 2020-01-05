@@ -1,0 +1,52 @@
+//============================================================================
+// Name        : Q22015.cpp
+// Author      : 
+// Version     :
+// Copyright   : Your copyright notice
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+namespace DCU{
+#include <vector>
+#include <algorithm>
+
+class Staff{
+private:
+	 string name,officeNum;
+	 int ID;
+public:
+	 Staff(string,string,int);
+	 virtual void getType() = 0;
+	 virtual void display();
+
+};
+
+Staff::Staff(string n, string o,int i){
+	name = n;
+	officeNum = o;
+	ID = i;
+}
+
+void Staff::display(){
+	cout<< "A Lecturer with name: " << name << endl;
+	cout << "ID number: " << ID << " and office: " << officeNum << endl;
+}
+
+class Lecturer: public Staff {
+private:
+	vector<string> v;
+public:
+
+};
+
+}
+
+int main() {
+	cout << "!!!Hello World!!!" << endl; // prints !!!Hello World!!!
+	return 0;
+}

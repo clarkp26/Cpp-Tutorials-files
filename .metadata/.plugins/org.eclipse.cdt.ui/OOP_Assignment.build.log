@@ -1,0 +1,7 @@
+16:28:56 **** Incremental Build of configuration Debug for project OOP_Assignment ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\OOP_Assignment.o" "..\\src\\OOP_Assignment.cpp" 
+g++ -o OOP_Assignment.exe "src\\OOP_Assignment.o" 
+
+16:28:57 Build Finished (took 1s.678ms)
+

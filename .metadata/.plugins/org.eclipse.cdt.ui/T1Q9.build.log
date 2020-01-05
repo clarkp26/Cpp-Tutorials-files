@@ -1,0 +1,7 @@
+20:17:59 **** Rebuild of configuration Debug for project T1Q9 ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\T1Q9.o" "..\\src\\T1Q9.cpp" 
+g++ -o T1Q9.exe "src\\T1Q9.o" 
+
+20:18:00 Build Finished (took 944ms)
+

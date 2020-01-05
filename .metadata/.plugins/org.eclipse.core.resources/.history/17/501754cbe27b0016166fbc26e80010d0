@@ -1,0 +1,28 @@
+//============================================================================
+// Name        : T1Q7.cpp
+// Author      : 
+// Version     :
+// Copyright   : Your copyright notice
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+
+#include <iostream>
+#include<string>
+using namespace std;
+
+void StringReverse(){
+	int position= 0;
+    string s;
+    string names[];
+	cin>>s;
+	while(s!="philip"){
+		names[position]=s;
+	}
+	cout << s << endl;
+}
+
+int main() {
+
+	StringReverse();
+	return 0;
+}

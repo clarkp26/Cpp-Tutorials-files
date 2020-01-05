@@ -1,0 +1,93 @@
+//============================================================================
+// Name        : T3Q2.cpp
+// Author      : 
+// Version     :
+// Copyright   : Your copyright notice
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+
+
+class Statistics{
+private:
+	//double a[50];
+	//double *a; //for Q4 cant have set number for array
+	//int arrayLength;
+	vector<double> a;
+public:
+	Statistics(double aa[],int bb);
+	virtual void display();
+	//void OutputFunction(int x);
+//	int max();
+//	int min();
+//	int average();
+};
+Statistics::Statistics(double aa[],int bb){
+//	a = new double[bb]; //sets pointer equal new array of whatever length specified
+	for( int i=0;i<bb;i++){
+//		*(a+i) = aa[i];
+		a.push_back(a[i]);
+	}
+}
+
+void OutputFunction(double x){
+	cout << x << endl;
+}
+
+void Statistics :: display(){
+	/*cout << "Array contents are: [";
+	for (int i =0; i<arrayLength;i++){
+		cout <<  a[i] << "," ;
+	}
+	cout << "] "<< endl;*/
+	sort(a.begin(), a.end());
+	for_each(a.begin(), a.end(), OutputFunction);
+}
+
+/*
+int Statistics:: max(){
+	int biggest = a[0];
+	for(int i=1;i<arrayLength;i++){
+		if (a[i] > biggest){
+			biggest = a[i];
+		}
+	}
+	return biggest;
+}
+int Statistics:: min(){
+	int smallest = a[0];
+	for(int i=1;i<arrayLength;i++){
+		if (a[i] < smallest){
+			smallest = a[i];
+		}
+	}
+	return smallest;
+}
+int Statistics:: average(){
+	int total = 0;
+	for (int i=0;i< arrayLength;i++){
+		total = total + a[i];
+	}
+	return total/arrayLength;
+}*/
+
+int main() {
+	double a[] = { 21,32,54,32,50,67,76,55,11,23};
+	int arrayLength = 10;
+	Statistics s(a,arrayLength);
+	s.display();
+//	vector<int> ss;
+//	ss.push_back(1);
+//	ss.push_back(2);
+	/*cout << s.max()<< endl;
+	cout << s.min()<< endl;
+	cout << s.average()<< endl;*/
+//	for_each(ss.begin(), ss.end(), OutputFunction);
+	return 0;
+}

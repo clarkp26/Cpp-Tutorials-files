@@ -1,0 +1,37 @@
+//============================================================================
+// Name        : T3Q2.cpp
+// Author      : 
+// Version     :
+// Copyright   : Your copyright notice
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+
+#include <iostream>
+using namespace std;
+
+class Statistics{
+private:
+	double a[];
+	int arrayLength;
+public:
+	Statistics(double aa[],int bb);
+	virtual void display();
+};
+Statistics::Statistics(double aa[],int bb){
+	a = aa;
+	arrayLength = bb;
+}
+void Statistics :: display(){
+	cout << "Array contents are: " << endl;
+	for (int i =0; i<arrayLength;i++){
+		cout << a[i] << endl;
+	}
+	cout << "Array length is: "<< arrayLength << endl;
+}
+int main() {
+	double a[] = { 21,32,54,32,5,67,76,55,31,23};
+	int arrayLength = 10;
+	Statistics s(a,arrayLength);
+	s.display();
+	return 0;
+}

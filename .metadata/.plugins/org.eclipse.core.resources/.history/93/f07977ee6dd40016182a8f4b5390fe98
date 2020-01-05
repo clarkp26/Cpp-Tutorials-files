@@ -1,0 +1,75 @@
+//============================================================================
+// Name        : 2016Q2.cpp
+// Author      : 
+// Version     :
+// Copyright   : Your copyright notice
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+
+#include <iostream>
+using namespace std;
+
+#include "Sensor.h"
+#include "Aggregator.h"
+#include <vector>
+#include <algorithm>
+
+Aggregator::Aggregator(){}
+
+Aggregator::~Aggregator(){
+	cout << "Aggregator object cleared" << endl;
+}
+
+void Aggregator::addReading(Sensor e){
+	this->v.push_back(e);
+}
+
+void Aggregator::display(){
+	sort(this->v.begin(),this->v.end());
+	for(vector<Sensor>::iterator t = v.begin(); t != v.end(); ++t){
+		t->display();
+	}
+}
+
+Sensor::~Sensor(){
+	cout << "Sensor gone hi" << endl;
+}
+Sensor::Sensor(string n,string u,float v){
+	name = n;
+	units = u;
+	value = v;
+}
+
+void Sensor::display(){
+	cout << name << endl;
+	cout << units << endl;
+	cout << value << endl;
+
+}
+void Sensor::setName(string x){
+	name = x;
+}
+string Sensor::getName(){
+	return name;
+}
+void Sensor::setUnit(string x){
+	units = x;
+}
+string Sensor::getUnit(){
+	return units;
+}
+void Sensor::setValue(float x){
+	value = x;
+}
+float Sensor::getValue(){
+	return value;
+}
+
+int main() {
+	Sensor one("Big Sensor Lad","Units all day",21);
+	one.setName("Bob");
+	one.setUnit("yeooo");
+	one.setValue(20);
+	one.display();
+	return 0;
+}

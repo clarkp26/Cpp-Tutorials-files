@@ -1,0 +1,31 @@
+/*
+ * Aggregator.h
+ *
+ *  Created on: 6 Jan 2017
+ *      Author: Philip
+ */
+
+#ifndef AGGREGATOR_H_
+#define AGGREGATOR_H_
+
+#include <iostream>
+
+
+#include "Sensor.h";
+#include <vector>;
+
+class Aggregator {
+private:
+	std::vector<Sensor> v;
+public:
+//	virtual void addReading(Sensor e);
+//	virtual void display();
+	virtual Sensor getMinimum();
+	virtual Sensor getMaximum();
+	Aggregator();
+//	virtual ~Aggregator();
+
+};
+
+
+#endif /* AGGREGATOR_H_ */

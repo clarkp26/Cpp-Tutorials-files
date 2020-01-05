@@ -1,0 +1,33 @@
+/*
+ * Aggregator.cpp
+ *
+ *  Created on: 7 Jan 2017
+ *      Author: Philip
+ */
+
+#ifndef AGGREGATOR_CPP_
+#define AGGREGATOR_CPP_
+
+#include "Aggregator.h"
+#include "Sensor.h"
+#include <algorithm>
+using namespace std;
+
+//Aggregator::Aggregator(){}
+//
+//Aggregator::~Aggregator(){
+//	cout << "Aggregator object cleared" << endl;
+//}
+
+//void Aggregator::addReading(Sensor e){
+//	this->v.push_back(e);
+//}
+
+//void Aggregator::display(){
+////	sort(this->v.begin(),this->v.end());
+//	for(vector<Sensor>::iterator t = v.begin(); t != v.end(); ++t){
+//		t->display();
+//	}
+//}
+
+#endif /* AGGREGATOR_CPP_ */

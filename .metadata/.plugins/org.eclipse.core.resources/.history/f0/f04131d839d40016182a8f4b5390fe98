@@ -1,0 +1,33 @@
+//============================================================================
+// Name        : ExamQuestionTests.cpp
+// Author      : 
+// Version     :
+// Copyright   : Your copyright notice
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+
+#include <iostream>
+using namespace std;
+
+int x = 1;
+class B {
+private:
+	int x = 3;
+};
+class A {
+private:
+	int x;
+public:
+	virtual void Inc(){
+		x = 2;
+		cout << "class As x = " << x << endl;
+		cout << "class Bs x = " << B::x << endl;
+		cout << "Global x = " << ::x<< endl;
+	}
+};
+
+int main() {
+	A a;
+	a.Inc();
+	return 0;
+}

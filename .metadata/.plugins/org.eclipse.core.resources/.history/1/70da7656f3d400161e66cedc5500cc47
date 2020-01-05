@@ -1,0 +1,49 @@
+//============================================================================
+// Name        : Q32016.cpp
+// Author      : 
+// Version     :
+// Copyright   : Your copyright notice
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+
+//#include <iostream>
+//using namespace std;
+
+#include<iostream>
+using namespace std;
+// namespace MolloySpace
+// {
+// float testAdd(float a, float b) { return a+b; }
+//
+// class Time
+// {
+// public: //etc.
+// };
+// }
+//
+// using std::cout;
+// using std::endl;
+// using namespace MolloySpace;
+// //using MolloySpace::Time;
+class A{
+private:
+public:
+	A();
+};
+A::A(){}
+class B: public A{
+private:
+public:
+	B();
+};
+B::B(){}
+int main() {
+	/*dynamic cast*/
+	A *a = new B();
+	B *c = dynamic_cast<B*>(a);
+	/*static cast*/
+	float y = 20.12;
+	int x = static_cast<int>(y);
+	cout<<x<<endl;
+	return 0;
+}

@@ -1,0 +1,10 @@
+17:08:43 **** Incremental Build of configuration Debug for project Q32016 ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Q32016.o" "..\\src\\Q32016.cpp" 
+..\src\Q32016.cpp: In function 'int main()':
+..\src\Q32016.cpp:64:14: error: conversion from 'B*' to non-scalar type 'B' requested
+  B x = new B();
+              ^
+
+17:08:43 Build Finished (took 532ms)
+

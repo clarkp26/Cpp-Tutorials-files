@@ -1,0 +1,33 @@
+/*
+ * Sensor.h
+ *
+ *  Created on: 6 Jan 2017
+ *      Author: Philip
+ */
+
+#ifndef SENSOR_H_
+#define SENSOR_H_
+
+
+#include <iostream>
+using namespace std;
+
+class Sensor{
+private:
+	string name;
+	string units;
+	float value;
+public:
+	Sensor(string,string,float);
+	virtual void display();
+	virtual void setName(string x);
+	virtual string getName();
+	virtual void setUnit(string x);
+	virtual string getUnit();
+	virtual void setValue(float x);
+	virtual float getValue();
+//	virtual ~Sensor();
+};
+
+
+#endif /* SENSOR_H_ */

@@ -1,0 +1,29 @@
+15:59:09 **** Incremental Build of configuration Debug for project OOP_Assign ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\FootballTeam.o" "..\\src\\FootballTeam.cpp" 
+..\src\FootballTeam.cpp:10:1: error: prototype for 'FootballTeam::FootballTeam()' does not match any in class 'FootballTeam'
+ FootballTeam::FootballTeam() {
+ ^
+In file included from ..\src\FootballTeam.cpp:8:0:
+..\src\FootballTeam.h:87:1: error: candidates are: FootballTeam::FootballTeam(const FootballTeam&)
+ FootballTeam::FootballTeam(const FootballTeam &copy):
+ ^
+..\src\FootballTeam.h:71:1: error:                 FootballTeam::FootballTeam(std::__cxx11::string, std::__cxx11::string)
+ FootballTeam::FootballTeam(string gk,string df){
+ ^
+..\src\FootballTeam.h:65:1: error:                 FootballTeam::FootballTeam(std::__cxx11::string, std::__cxx11::string, std::__cxx11::string)
+ FootballTeam::FootballTeam(string gk,string df, string md){
+ ^
+..\src\FootballTeam.h:58:1: error:                 FootballTeam::FootballTeam(std::__cxx11::string, std::__cxx11::string, std::__cxx11::string, std::__cxx11::string)
+ FootballTeam::FootballTeam(string gk,string df, string md, string sk){
+ ^
+..\src\FootballTeam.cpp:15:1: error: redefinition of 'FootballTeam::~FootballTeam()'
+ FootballTeam::~FootballTeam() {
+ ^
+In file included from ..\src\FootballTeam.cpp:8:0:
+..\src\FootballTeam.h:55:1: note: 'virtual FootballTeam::~FootballTeam()' previously defined here
+ FootballTeam::~FootballTeam(){
+ ^
+
+15:59:10 Build Finished (took 592ms)
+

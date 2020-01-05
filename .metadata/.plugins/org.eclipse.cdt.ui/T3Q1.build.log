@@ -1,0 +1,7 @@
+15:43:33 **** Incremental Build of configuration Debug for project T3Q1 ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\T3Q1.o" "..\\src\\T3Q1.cpp" 
+g++ -o T3Q1.exe "src\\T3Q1.o" 
+
+15:43:34 Build Finished (took 969ms)
+

@@ -1,0 +1,86 @@
+//============================================================================
+// Name        : Q22015.cpp
+// Author      : 
+// Version     :
+// Copyright   : Your copyright notice
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+namespace DCU{
+//#include <vector>
+//#include <algorithm>
+
+class Staff{
+private:
+	 string name,officeNum;
+	 int ID;
+public:
+	 Staff(string,string,int);
+	 virtual void getType() = 0;
+	 virtual void display();
+
+};
+
+Staff::Staff(string n, string o,int i){
+	name = n;
+	officeNum = o;
+	ID = i;
+}
+
+void Staff::display(){
+//	cout<< "A Lecturer with name: " << name << endl;
+	cout << "ID number: " << ID << " and office: " << officeNum << endl;
+}
+
+class Lecturer: public Staff {
+private:
+	std::vector<string> v;
+public:
+	Lecturer(string,string,int,vector<string>);
+	virtual string getType(){return "Lecturer";}
+
+	virtual void display();
+};
+
+Lecturer::Lecturer(string n,string o,int i,vector<string> vv):
+	Staff(name,officeNum,ID),v(vv){}
+
+void Lecturer::display(){
+	cout<< "A Lecturer with name: " << name << endl;
+	Staff::display();
+	cout<< "And has the 4 modules: [";
+	for (vector<string>::iterator t; t != v.end();++t){
+		cout << t;
+	}
+	cout << "]" << endl;
+}
+
+class Administrator: public Staff {
+private:
+	std::string role;
+public:
+	Administrator(string,string,string,int);
+	virtual string getType(){return "Administrator";}
+	virtual void display();
+
+};
+
+Administrator::Administrator(string name,string officeNum, string r,int ID):
+		Staff(name,officeNum,ID),role(r){}
+
+void Administrator::display(){
+	cout<< "A Administrator with name: " << name << endl;
+		Staff::display();
+		cout << "and has the role: "<< role << endl;
+}
+}
+
+int main() {
+	cout << "!!!Hello World!!!" << endl; // prints !!!Hello World!!!
+	return 0;
+}

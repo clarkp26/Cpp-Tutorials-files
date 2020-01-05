@@ -1,0 +1,42 @@
+//============================================================================
+// Name        : T2Q4.cpp
+// Author      : 
+// Version     :
+// Copyright   : Your copyright notice
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+
+#include <iostream>
+using namespace std;
+
+class Vehicle{
+
+private:
+	string colour;
+	string make,model;
+
+public:
+    virtual void display();
+};
+
+class Car: public Vehicle{
+private:
+	int seats;
+
+public:
+	Car(string col,string ma, string mo,int s);
+	virtual void display()=0;
+};
+
+Car::Car(string col,string ma, string mo,int s){
+	Vehicle(colour,make,model),seats(s);
+}
+
+void Car::display(){
+	cout << " Colour:" << colour << "\n Make:" << make << "\n Model:" << model << "\n Seats:" << seats << endl;
+
+}
+int main() {
+
+	return 0;
+}

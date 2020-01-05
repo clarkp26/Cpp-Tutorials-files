@@ -1,0 +1,7 @@
+20:18:16 **** Rebuild of configuration Debug for project T2Q8 ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\T2Q8.o" "..\\src\\T2Q8.cpp" 
+g++ -o T2Q8.exe "src\\T2Q8.o" 
+
+20:18:17 Build Finished (took 998ms)
+

@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1520001994 source:c:\users\philip\documents\github\cryptography\p1\decrypt.cpp
+	<iostream>
+	<string>
+	<fstream>
+
+1520004016 source:c:\users\philip\documents\github\simpleblackjack\main.cpp
+	<iostream>
+	<string>
+	<vector>
+	<algorithm>
+	<time.h>
+	<stdlib.h>
+	<stdio.h>
+	<math.h>
+

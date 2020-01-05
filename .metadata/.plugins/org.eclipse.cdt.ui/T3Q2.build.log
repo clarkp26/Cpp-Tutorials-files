@@ -1,0 +1,10 @@
+19:57:20 **** Incremental Build of configuration Debug for project T3Q2 ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\T3Q2.o" "..\\src\\T3Q2.cpp" 
+..\src\T3Q2.cpp: In member function 'double Statistics::average()':
+..\src\T3Q2.cpp:97:40: error: 'count' cannot be used as a function
+  double count = count(a.begin(),a.end());
+                                        ^
+
+19:57:20 Build Finished (took 516ms)
+
